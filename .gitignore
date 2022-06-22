@@ -1,1 +1,6 @@
 target
+.idea
+log/*
+*.log
+apps/*
+
