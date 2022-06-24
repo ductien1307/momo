@@ -6,7 +6,6 @@ import org.junit.runner.RunWith;
 
 
 @RunWith(Cucumber.class)
-/*
 @CucumberOptions(
         features = "src/test/resources/features",
         glue = { "stepDefinitions" },
@@ -14,16 +13,16 @@ import org.junit.runner.RunWith;
                 , "html:target/cucumber"
                 , "summary"
                 , "json:target/cucumber.json"},
-        tags = "not @ignore")*/
+        tags = "not @ignore")
 
-@CucumberOptions(
+/*@CucumberOptions(
         features = "src/test/resources/features",
         glue = { "stepDefinitions" },
         plugin = {"pretty"
                 , "html:target/cucumber"
                 , "summary"
                 , "de.monochromata.cucumber.report.PrettyReports:target/cucumber-reports"},
-        tags = "not @ignore")
+        tags = "not @ignore")*/
 
 public class TestRunner {
     //System.out.println("XXX");
