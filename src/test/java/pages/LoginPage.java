@@ -2,9 +2,9 @@ package pages;
 
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.pagefactory.AndroidFindBy;
-import io.appium.java_client.pagefactory.iOSXCUITFindBy;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import utils.BasePage;
 
 public class LoginPage extends BasePage {
     private static final Logger logger = LogManager.getLogger(LoginPage.class);

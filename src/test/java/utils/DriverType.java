@@ -1,4 +1,4 @@
-package driver;
+package utils;
 
 public enum DriverType {
     ANDROID, IOS

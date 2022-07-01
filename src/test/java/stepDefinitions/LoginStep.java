@@ -33,5 +33,4 @@ public class LoginStep {
         loginPage.clickExploreButton();
     }
 
-
 }

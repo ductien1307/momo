@@ -1,14 +1,8 @@
-package pages;
+package utils;
 
-import com.sun.javafx.binding.StringFormatter;
-import config.ReadProperties;
-import driver.DriverManager;
-import driver.ServerManager;
 import io.appium.java_client.AppiumDriver;
-import io.appium.java_client.MobileBy;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
-import org.aeonbits.owner.ConfigFactory;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.By;
@@ -19,11 +13,10 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import java.util.HashMap;
 import java.util.Map;
 
+import static utils.DriverManager.os;
+
 public class BasePage {
     private static final Logger logger = LogManager.getLogger(BasePage.class);
-    ReadProperties readProperties = ConfigFactory.create(ReadProperties.class);
-    String os;
-
     WebDriverWait wait;
     AppiumDriver driver;
 
@@ -31,7 +24,6 @@ public class BasePage {
         this.driver = DriverManager.getDriver();
         PageFactory.initElements(new AppiumFieldDecorator(driver), this);
         wait = new WebDriverWait(driver, 20);
-        os = readProperties.driverType().toLowerCase();
     }
 
     public void clickOn(MobileElement element) {
@@ -54,7 +46,7 @@ public class BasePage {
 
     }
 
-    public boolean elementDisplayed(String strage,String text) {
+    public boolean elementDisplayed(String text) {
         try {
             Thread.sleep(2000);
         } catch (InterruptedException e) {
