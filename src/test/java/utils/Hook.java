@@ -18,14 +18,13 @@ public class Hook {
         DriverManager.initialize();
     }
 
-   /* @After
+    @After
     public void endTest(Scenario scenario) throws InterruptedException {
-        Thread.sleep(2000);
         if (scenario.isFailed()) {
             byte[] screenshot = DriverManager.getDriver().getScreenshotAs(OutputType.BYTES);
             scenario.attach(screenshot, "image/png", scenario.getName());
         }
-    }*/
+    }
 
     /*@After
     public void endTest(){
