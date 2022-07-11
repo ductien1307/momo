@@ -1,27 +1,19 @@
-package utils;
+package utilities;
 
 import io.cucumber.junit.Cucumber;
 import io.cucumber.junit.CucumberOptions;
 import org.junit.runner.RunWith;
 
 @RunWith(Cucumber.class)
+
 @CucumberOptions(
         features = "src/test/resources/features",
-        glue = { "utils" },
-        plugin = {"pretty"
-                , "html:target/cucumber"
-                , "summary"
-                , "json:target/cucumber.json"},
-        tags = "not @ignore")
-
-/*@CucumberOptions(
-        glue = { "utils" },
-        features = "src/test/resources/features",
+        glue = {"stepDefinitions", "utilities"},
         plugin = {"pretty"
                 , "html:target/cucumber"
                 , "summary"
                 , "de.monochromata.cucumber.report.PrettyReports:target/cucumber-reports"},
-        tags = "not @ignore")*/
+        tags = "not @ignore")
 
 public class TestRunner {
 

@@ -1,36 +1,49 @@
 package stepDefinitions;
 
 import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
 import pages.LoginPage;
+import utilities.BasePage;
 
-public class LoginStep {
+public class LoginStep extends BasePage {
     private LoginPage loginPage;
 
     public LoginStep() {
         loginPage = new LoginPage();
     }
 
-    @Given("I provide phone number is {string}")
+    @When("I provide phone number is {string}")
     public void iProvidePhoneNumberIs(String phoneNumber) {
         loginPage.inputPhoneNumber(phoneNumber);
         loginPage.clickLogin();
     }
 
-    @Given("I provide password is {string}")
+
+    @When("I provide password is {string}")
     public void iProvidePasswordIs(String password) {
         loginPage.inputPassword(password);
     }
 
-    @When("I see error text is {string}")
+
+    @Then("I see error text is {string}")
     public void iSeeErrorText(String errorText) {
         Assert.assertEquals(errorText, loginPage.getErrorText());
     }
 
-    @When("I click explore now button")
-    public void iClickExploreButton() {
+
+    @Given("I click explore now button")
+    public void iClickExploreButton() throws InterruptedException {
         loginPage.clickExploreButton();
     }
+
+
+    @Given("I touch skip button")
+    public void i_touch_skip_button() {
+        loginPage.clickExploreButton();
+    }
+
+
 
 }

@@ -1,4 +1,4 @@
-package utils;
+package utilities;
 
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
@@ -13,24 +13,24 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import java.util.HashMap;
 import java.util.Map;
 
-import static utils.DriverManager.os;
+import static utilities.DriverManager.os;
 
 public class BasePage {
-    private static final Logger logger = LogManager.getLogger(BasePage.class);
-    WebDriverWait wait;
-    AppiumDriver driver;
+    public static final Logger logger = LogManager.getLogger(BasePage.class);
+    public WebDriverWait wait;
+    public AppiumDriver driver;
 
     public BasePage() {
         this.driver = DriverManager.getDriver();
         PageFactory.initElements(new AppiumFieldDecorator(driver), this);
         wait = new WebDriverWait(driver, 20);
+        logger.info("XXX: " + driver);
     }
 
     public void clickOn(MobileElement element) {
         logger.info("click to " + element.toString());
         waitUntilElementVisiable(element);
         element.click();
-
     }
 
     public void typeTextTo(MobileElement element, String text) {
@@ -38,7 +38,6 @@ public class BasePage {
         waitUntilElementVisiable(element);
         element.clear();
         element.sendKeys(text);
-
     }
 
     public void clickOn(By by) {

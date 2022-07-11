@@ -4,7 +4,7 @@ import io.appium.java_client.MobileElement;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import utils.BasePage;
+import utilities.BasePage;
 
 public class LoginPage extends BasePage {
     private static final Logger logger = LogManager.getLogger(LoginPage.class);
@@ -12,11 +12,11 @@ public class LoginPage extends BasePage {
     @AndroidFindBy(accessibility = "Số điện thoại/TextInput")
     private MobileElement phoneNumberTxt;
 
-    @AndroidFindBy(xpath = "//android.view.ViewGroup[@content-desc=\"Nhập mật khẩu/Input/Typing\"]/android.view.ViewGroup/android.view.ViewGroup[2]")
+    @AndroidFindBy(xpath = "//android.widget.EditText[@content-desc=\"Nhập mật khẩu/TextInput\"]")
     private MobileElement passwordTxt;
 
 
-    @AndroidFindBy(xpath = "//android.view.ViewGroup[@content-desc=\"Khám phá ngay/Button\"]/android.view.ViewGroup")
+    @AndroidFindBy(xpath = "//android.widget.TextView[@content-desc=\"Khám phá ngay/Text\"]")
     private MobileElement exploreNowBtn;
 
     @AndroidFindBy(xpath = "//android.view.ViewGroup[@content-desc=\"Tiếp tục/Button\"]/android.view.ViewGroup")
