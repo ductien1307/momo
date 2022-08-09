@@ -12,17 +12,26 @@ public class CapabilitiesManager {
 
     public DesiredCapabilities getCaps(String os) {
         DesiredCapabilities caps = new DesiredCapabilities();
+        logger.info(caps);
         switch (os) {
             case "android":
                 caps.setCapability(MobileCapabilityType.AUTOMATION_NAME, prop.automation_name());
                 caps.setCapability(MobileCapabilityType.PLATFORM_NAME, prop.platform_name());
+                caps.setCapability(MobileCapabilityType.PLATFORM_VERSION, prop.platform_version());
+                /*caps.setCapability(MobileCapabilityType.DEVICE_NAME, prop.device_name());
                 caps.setCapability(MobileCapabilityType.NO_RESET, prop.no_reset());
-                caps.setCapability(MobileCapabilityType.FULL_RESET, prop.full_reset());
-                caps.setCapability(MobileCapabilityType.APP, System.getProperty("user.dir") + prop.apps());
-                //caps.setCapability(MobileCapabilityType.DEVICE_NAME, prop.device_name());\
-                //caps.setCapability("appWaitForLaunch",true);
-                //caps.setCapability("appWaitPackage","vn.momo.platform.MainActivity");
-                //caps.setCapability("appPackage","vn.momo.platform.MainActivity");
+                caps.setCapability(MobileCapabilityType.FULL_RESET, prop.full_reset());*/
+
+                /*caps.setCapability("autoGrantPermissions", true);
+                caps.setCapability("appWaitForLaunch", true);
+                caps.setCapability("unicodeKeyboard", true);
+                caps.setCapability("resetKeyboard", true);*/
+
+                /*caps.setCapability("appActivity", prop.app_activity());
+                caps.setCapability("skipDeviceInitialization", prop.skipDeviceInitialization());
+                caps.setCapability("skipServerInstallation", prop.skipServerInstallation());*/
+
+                caps.setCapability(MobileCapabilityType.APP, System.getProperty("user.dir") + prop.app());
                 break;
             case "ios":
                 caps.setCapability(MobileCapabilityType.AUTOMATION_NAME, "XCUITest");

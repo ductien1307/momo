@@ -15,6 +15,7 @@ import org.apache.logging.log4j.Logger;
 public class DriverManager {
     public static final Logger logger = LogManager.getLogger(DriverManager.class);
     public static String os = "";
+    public static String project = "";
     public static Properties prop = ConfigFactory.create(Properties.class);
     public static ThreadLocal<AppiumDriver> driver = new ThreadLocal<>();
     public static AppiumDriver getDriver() {
@@ -23,6 +24,7 @@ public class DriverManager {
 
     public static void initialize() throws MalformedURLException {
         os = System.getProperty("os");
+        project = System.getProperty("project");
         AppiumDriver appiumDriver = null;
         if (appiumDriver == null) {
             switch (os) {
@@ -33,6 +35,9 @@ public class DriverManager {
                 case "ios":
                     appiumDriver = new IOSDriver(ServerManager.getServer().getUrl(),
                             new CapabilitiesManager().getCaps(os));
+                    break;
+                default:
+                    logger.info("incorrect platform");
                     break;
             }
             driver.set(appiumDriver);
