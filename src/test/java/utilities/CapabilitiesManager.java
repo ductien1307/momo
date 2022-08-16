@@ -18,20 +18,23 @@ public class CapabilitiesManager {
                 caps.setCapability(MobileCapabilityType.AUTOMATION_NAME, prop.automation_name());
                 caps.setCapability(MobileCapabilityType.PLATFORM_NAME, prop.platform_name());
                 caps.setCapability(MobileCapabilityType.PLATFORM_VERSION, prop.platform_version());
-                /*caps.setCapability(MobileCapabilityType.DEVICE_NAME, prop.device_name());
+                //Prod
+                caps.setCapability(MobileCapabilityType.DEVICE_NAME, prop.device_name());
                 caps.setCapability(MobileCapabilityType.NO_RESET, prop.no_reset());
-                caps.setCapability(MobileCapabilityType.FULL_RESET, prop.full_reset());*/
+                caps.setCapability(MobileCapabilityType.FULL_RESET, prop.full_reset());
 
-                /*caps.setCapability("autoGrantPermissions", true);
+                caps.setCapability("autoGrantPermissions", true);
                 caps.setCapability("appWaitForLaunch", true);
                 caps.setCapability("unicodeKeyboard", true);
-                caps.setCapability("resetKeyboard", true);*/
+                //caps.setCapability("resetKeyboard", true);
 
-                /*caps.setCapability("appActivity", prop.app_activity());
+                caps.setCapability("appActivity", prop.app_activity());
                 caps.setCapability("skipDeviceInitialization", prop.skipDeviceInitialization());
-                caps.setCapability("skipServerInstallation", prop.skipServerInstallation());*/
+                caps.setCapability("skipServerInstallation", prop.skipServerInstallation());
+                caps.setCapability("connectHardwareKeyboard", true);
 
-                caps.setCapability(MobileCapabilityType.APP, System.getProperty("user.dir") + prop.app());
+                //end prod
+                //caps.setCapability(MobileCapabilityType.APP, System.getProperty("user.dir") + prop.app());
                 break;
             case "ios":
                 caps.setCapability(MobileCapabilityType.AUTOMATION_NAME, "XCUITest");

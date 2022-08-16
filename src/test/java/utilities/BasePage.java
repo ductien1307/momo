@@ -22,6 +22,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import javax.lang.model.element.Element;
 import java.awt.*;
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -151,7 +152,7 @@ public class BasePage {
 
     public void verticalScrolling(double startPercentage, double endPercentage, double anchorPercentage) {
         Dimension size = driver.manage().window().getSize();
-        // int anchor = (int) (size.width /2); -> có thể fix cứng /2 như này
+        // int anchor = (int) (size.width /2);
         int anchor = (int) (size.width * anchorPercentage);
         int startPoint = (int) (size.height * startPercentage);
         int endPoint = (int) (size.height * endPercentage);
@@ -161,6 +162,21 @@ public class BasePage {
                 .moveTo(point(anchor, endPoint))
                 .release()
                 .perform();
+    }
+
+    public boolean showKeyboard() {
+        String command = "adb -s input keyevent KEYCODE_SEARCH";
+        try {
+            Process result = Runtime.getRuntime().exec(command);
+        } catch (IOException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+        //((AndroidDriver) driver).pressKey(new KeyEvent(AndroidKey.BUTTON_1));
+        //driver.executeScript("",ImmutableMap.of("name","home"));
+        //driver.sendKeyEvent(66);
+        boolean isDisplayed = ((AndroidDriver) driver).isKeyboardShown();
+        return isDisplayed;
     }
 
 }

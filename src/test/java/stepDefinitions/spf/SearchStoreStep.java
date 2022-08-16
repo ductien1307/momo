@@ -24,4 +24,16 @@ public class SearchStoreStep extends BasePage {
         menuPage.gotoMenu("Likes");
         searchStorePage.mostOrder();
     }
+
+    @When("I test keyboard")
+    public void iTestKeyboard() throws InterruptedException {
+        clickOn(xPathDynamic("Deal cô hồn, dzựt món 0Đ"));
+        sleep(5);
+        logger.info("XXX:");
+        logger.info(showKeyboard());
+
+        sleep(5);
+
+    }
+
 }
