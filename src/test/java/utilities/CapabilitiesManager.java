@@ -12,7 +12,6 @@ public class CapabilitiesManager {
 
     public DesiredCapabilities getCaps(String os) {
         DesiredCapabilities caps = new DesiredCapabilities();
-        logger.info(caps);
         switch (os) {
             case "android":
                 caps.setCapability(MobileCapabilityType.AUTOMATION_NAME, prop.automation_name());
@@ -28,13 +27,13 @@ public class CapabilitiesManager {
                 caps.setCapability("unicodeKeyboard", true);
                 //caps.setCapability("resetKeyboard", true);
 
-                caps.setCapability("appActivity", prop.app_activity());
+                /*caps.setCapability("appActivity", prop.app_activity());
                 caps.setCapability("skipDeviceInitialization", prop.skipDeviceInitialization());
                 caps.setCapability("skipServerInstallation", prop.skipServerInstallation());
-                caps.setCapability("connectHardwareKeyboard", true);
+                caps.setCapability("connectHardwareKeyboard", true);*/
 
                 //end prod
-                //caps.setCapability(MobileCapabilityType.APP, System.getProperty("user.dir") + prop.app());
+                caps.setCapability(MobileCapabilityType.APP, System.getProperty("user.dir") + prop.app());
                 break;
             case "ios":
                 caps.setCapability(MobileCapabilityType.AUTOMATION_NAME, "XCUITest");
@@ -44,6 +43,7 @@ public class CapabilitiesManager {
                 logger.info("FW Can not support with your OS!");
                 break;
         }
+        logger.info(caps);
         return caps;
     }
 }

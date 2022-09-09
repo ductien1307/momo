@@ -36,7 +36,6 @@ public class ServerManager {
                         .usingAnyFreePort()
                         .withArgument(GeneralServerFlag.LOCAL_TIMEZONE)
                         .withLogFile(new File("log" + File.separator + "log_appium_server.txt"))
-
         );
     }
 
