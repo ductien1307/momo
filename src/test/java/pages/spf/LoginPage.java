@@ -13,6 +13,5 @@ public class LoginPage extends BasePage {
         typeTextTo(xPathDynamic("Email/Username"), phoneNumber);
         typeTextTo(xPathDynamic("Password"), password);
         clickOn(LOGIN_BTN);
-        sleep(3);
     }
 }

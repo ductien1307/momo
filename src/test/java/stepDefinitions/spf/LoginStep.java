@@ -16,10 +16,8 @@ public class LoginStep extends BasePage {
 
     @When("I login with {string} and {string}")
     public void iLoginWith(String phoneNumber, String password) throws InterruptedException {
-        sleep(5);
         menuPage.gotoMenu("Me");
         loginPage.login(phoneNumber, password);
     }
-
 
 }
