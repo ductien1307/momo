@@ -18,6 +18,7 @@ public class DriverManager {
     public static String project = "";
     public static Properties prop = ConfigFactory.create(Properties.class);
     public static ThreadLocal<AppiumDriver> driver = new ThreadLocal<>();
+
     public static AppiumDriver getDriver() {
         return driver.get();
     }
@@ -25,6 +26,8 @@ public class DriverManager {
     public static void initialize() throws MalformedURLException {
         os = System.getProperty("os");
         project = System.getProperty("project");
+        logger.info("OS: " + os);
+        logger.info("Project: " + project);
         AppiumDriver appiumDriver = null;
         if (appiumDriver == null) {
             switch (os) {
@@ -33,7 +36,7 @@ public class DriverManager {
                             prop.hubs()), new CapabilitiesManager().getCaps(os));
                     break;
                 case "ios":
-                    appiumDriver = new IOSDriver(ServerManager.getServer().getUrl(),
+                    appiumDriver = new IOSDriver(new URL(prop.hubs()),
                             new CapabilitiesManager().getCaps(os));
                     break;
                 default:
