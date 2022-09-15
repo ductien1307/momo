@@ -36,6 +36,7 @@ public class CapabilitiesManager {
                 logger.info("FW Can not support with your OS!");
                 break;
         }
+        logger.info(caps);
         return caps;
     }
 }
